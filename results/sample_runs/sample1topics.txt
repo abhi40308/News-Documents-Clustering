@@ -1,0 +1,48 @@
+Articles : 2500
+Topics : 5
+
+
+Concept 0: 
+romney
+gingrich
+santorum
+obama
+people
+campaign
+state
+ 
+Concept 1: 
+romney
+gingrich
+santorum
+iowa
+hampshire
+south carolina
+campaign
+ 
+Concept 2: 
+game
+season
+points
+team
+wizards
+games
+play
+ 
+Concept 3: 
+iran
+obama
+iranian
+government
+military
+nuclear
+taliban
+ 
+Concept 4: 
+google
+sopa
+sites
+piracy
+wikipedia
+internet
+online

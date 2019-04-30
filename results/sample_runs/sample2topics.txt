@@ -1,0 +1,48 @@
+Articles : 10000
+Topics : 5
+
+
+Concept 0: 
+romney
+obama
+people
+gingrich
+santorum
+state
+percent
+ 
+Concept 1: 
+romney
+gingrich
+santorum
+campaign
+obama
+republican
+voters
+ 
+Concept 2: 
+game
+points
+season
+team
+romney
+coach
+games
+ 
+Concept 3: 
+block
+free
+county
+church
+romney
+center
+school
+ 
+Concept 4: 
+apple
+ipad
+company
+google
+tablet
+facebook
+users

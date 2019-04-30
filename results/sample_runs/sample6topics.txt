@@ -1,0 +1,92 @@
+Number of articles : 22000
+Topics : 10
+
+Concept 0: 
+trump
+president
+story
+term shape
+term shape rect
+house
+people
+ 
+Concept 1: 
+tillerson
+russia
+sanctions
+secretary state
+senate
+exxon
+exxonmobil
+ 
+Concept 2: 
+trump
+president
+white house
+opinions
+https opinions
+house
+comey
+ 
+Concept 3: 
+police
+police said
+trump
+block
+county
+officers
+shooting
+ 
+Concept 4: 
+showlink
+animal
+adoption
+corp
+area
+manassas
+free
+ 
+Concept 5: 
+health
+care
+health care
+bill
+republicans
+senate
+medicaid
+ 
+Concept 6: 
+amazon
+https amazon
+linkcode
+thewaspos
+https amazon product
+amazon product
+linkcode creativeasin
+ 
+Concept 7: 
+corp
+area
+lane
+michael
+estate
+terr
+million
+ 
+Concept 8: 
+recipes
+https recipes
+term shape
+term shape rect
+rect target https
+target https
+target https recipes
+ 
+Concept 9: 
+korea
+north korea
+north
+china
+school
+united
+korean

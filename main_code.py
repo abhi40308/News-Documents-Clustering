@@ -19,6 +19,7 @@ def parseLog(file):
     
     data = json.loads(json.dumps(content))
     k=0
+    # print(data)
 
 # preprocessing ////////////////////////////////
 
@@ -26,15 +27,31 @@ def parseLog(file):
     for i in data:
         string_content = ""
         if "contents" in i:
-	        for all in i["contents"]:
-	            if "content" in all:
-	                # print(str(all["content"]))
-	                string_content = string_content + str(all["content"])
-	        content_list.append(string_content)
+            for all in i["contents"]:
+                if "content" in all:
+                    # print(str(all["content"]))
+                    sample_str = str(all["content"])
+
+                    new_str = ""
+                    flag = 0
+                    for i in sample_str:
+                        if i == "<":
+                            flag = 1
+                        if i == ">":
+                            flag = 0
+                        if flag == 0:
+                            new_str += i
+
+                    string_content = string_content + new_str
+            content_list.append(string_content)
     
+    for i in range(15):
+    	print(content_list[i])
+    	print('\n\n')
+    print('\n\n')
 
     news_df = pd.DataFrame({'document':content_list})
-    
+
     # removing everything except alphabets`
     news_df['clean_doc'] = news_df['document'].str.replace("[^a-zA-Z#]", " ")
 
@@ -77,7 +94,7 @@ def parseLog(file):
 
     X = vectorizer.fit_transform(detokenized_doc)
 
-    print(X.shape) # check shape of the document-term matrix
+    # print(X.shape) # check shape of the document-term matrix
 
     terms = vectorizer.get_feature_names()
     # print(terms)
@@ -86,13 +103,17 @@ def parseLog(file):
 
     from sklearn.cluster import KMeans
 
-    num_clusters = 10
+    num_clusters = 5
 
     km = KMeans(n_clusters=num_clusters)
 
     km.fit(X)
 
     clusters = km.labels_.tolist()
+
+    for i in range(15):
+        print(clusters[i], end=" ")
+    print('\n\n')
 
 
 # applying lsa //////////////////////////////
@@ -101,9 +122,11 @@ def parseLog(file):
     from sklearn.utils.extmath import randomized_svd
 
     U, Sigma, VT = randomized_svd(X, 
-                                  n_components=10,
+                                  n_components=5,
                                   n_iter=100,
-                              random_state=122)
+                              random_state=123)
+
+    # print(U)
 
     # SVD represent documents and terms in vectors
     # svd_model = TruncatedSVD(n_components=2, algorithm='randomized', n_iter=100, random_state=122)
@@ -124,13 +147,21 @@ def parseLog(file):
 
     import umap
 
+    print('\n\n')
     X_topics=U*Sigma
-    embedding = umap.UMAP(n_neighbors=100, min_dist=0.5, random_state=12).fit_transform(X_topics)
+    # print(X_topics)
+    embedding = umap.UMAP(n_neighbors=25, min_dist=0.5, random_state=12).fit_transform(X_topics)
+
+    #printing points on the plot to compare
+    print(embedding.shape)
+
+    print(embedding[:15,0])
+    print(embedding[:15,1])
 
     plt.figure(figsize=(7,5))
     plt.scatter(embedding[:, 0], embedding[:, 1], 
     c = clusters,
-    s = 10, # size
+    s = 15, # size
     edgecolor='none'
     )
     plt.show()
